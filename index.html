@@ -34,6 +34,17 @@
       });
     </script>
     <style>
+      @font-face {
+        font-family: 'Press Start 2P';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Press Start 2P Regular'), local('PressStart2P-Regular'),
+          url(e3t4euO8T-267oIAQAu6jDQyK3nVivNm4I81.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
       html,
       body {
         min-height: 100vh;
@@ -52,7 +63,7 @@
         max-width: calc(100% - 40px);
       }
       #logo img {
-        display:block;
+        display: block;
         width: 100%;
         height: auto;
       }
@@ -62,6 +73,18 @@
       #qr-code svg {
         display: block;
         margin: 20px auto;
+      }
+      #message {
+        flex-grow: 1;
+        text-align: center;
+        padding-bottom: 40px;
+      }
+      #message h4 {
+        font-size: 1.5em;
+      }
+      #message p, #message h4 {
+        font-family: 'Press Start 2P';
+        color: #c9f5f5;
       }
     </style>
   </head>
@@ -81,5 +104,10 @@
       <img id="logo" src="./twilio-quest.png" />
     </div>
     <div id="qr-code"></div>
+    <div id="message">
+      <h4>Win prizes with TwilioQuest!</h4>
+      <p>500pts = small prize</p>
+      <p>1000pts = Game Boy emulator</p>
+    </div>
   </body>
 </html>
