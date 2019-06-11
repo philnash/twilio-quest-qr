@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <title>QRCode WASM</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <script src="dist/qr_wasm.js"></script>
+    <script>
+      window.addEventListener(`load`, function(event) {
+        const qrCodeDiv = document.getElementById('qr-code');
+        const input = document.getElementById('string');
+        const darkColor = document.getElementById('dark-color');
+        const lightColor = document.getElementById('light-color');
+        const updateQr = () => {
+          if (input.value !== '') {
+            const svg = wasm_bindgen.qrcode(
+              input.value,
+              256,
+              256,
+              darkColor.value,
+              lightColor.value
+            );
+            qrCodeDiv.innerHTML = svg;
+          }
+        };
+        wasm_bindgen(`dist/qr_wasm_bg.wasm`).then(() => {
+          input.removeAttribute('disabled');
+          darkColor.removeAttribute('disabled');
+          lightColor.removeAttribute('disabled');
+          input.addEventListener('keyup', updateQr);
+          darkColor.addEventListener('change', updateQr);
+          lightColor.addEventListener('change', updateQr);
+
+          updateQr();
+        });
+      });
+    </script>
+    <style>
+      html,
+      body {
+        min-height: 100vh;
+        background-color: #0d122b;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #logo {
+        flex-grow: 1;
+        display: block;
+        margin: 20px auto;
+        max-width: calc(100% - 40px);
+      }
+      #logo img {
+        display:block;
+        width: 100%;
+        height: auto;
+      }
+      #qr-code {
+        flex-grow: 1;
+      }
+      #qr-code svg {
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <form hidden>
+      <label for="string">Enter string to be QR coded</label>
+      <input
+        type="text"
+        id="string"
+        disabled
+        value="https://www.twilio.com/quest"
+      />
+      <input type="color" id="dark-color" value="#C9F5F5" disabled />
+      <input type="color" id="light-color" value="#0D122B" disabled />
+    </form>
+    <div id="logo">
+      <img id="logo" src="./twilio-quest.png" />
+    </div>
+    <div id="qr-code"></div>
+  </body>
+</html>
