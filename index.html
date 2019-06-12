@@ -5,7 +5,7 @@
     <script src="dist/qr_wasm.js"></script>
     <script>
       window.addEventListener(`load`, function(event) {
-        const qrCodeDiv = document.getElementById('qr-code');
+        const qrCodeDiv = document.getElementById('qr-code-svg');
         const input = document.getElementById('string');
         const darkColor = document.getElementById('dark-color');
         const lightColor = document.getElementById('light-color');
@@ -72,7 +72,7 @@
       }
       #qr-code svg {
         display: block;
-        margin: 20px auto;
+        margin: 20px auto 0;
       }
       #message {
         flex-grow: 1;
@@ -82,9 +82,11 @@
       #message h4 {
         font-size: 1.5em;
       }
-      #message p, #message h4 {
+      p,
+      h4 {
         font-family: 'Press Start 2P';
         color: #c9f5f5;
+        text-align: center;
       }
     </style>
   </head>
@@ -103,7 +105,10 @@
     <div id="logo">
       <img id="logo" src="./twilio-quest.png" />
     </div>
-    <div id="qr-code"></div>
+    <div id="qr-code">
+      <div id="qr-code-svg"></div>
+      <p style="text-decoration: underline; margin-top:0;">twilio.com/quest</p>
+    </div>
     <div id="message">
       <h4>Win prizes with TwilioQuest!</h4>
       <p>500pts = small prize</p>
