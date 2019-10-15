@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>QRCode WASM</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+    <style>
+      @font-face {
+        font-family: 'Press Start 2P';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Press Start 2P Regular'), local('PressStart2P-Regular'),
+          url(e3t4euO8T-267oIAQAu6jDQyK3nVivNm4I81.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+          U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      html,
+      body {
+        min-height: 100vh;
+        background-color: #0d122b;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #logo {
+        flex-grow: 1;
+        display: block;
+        margin: 20px auto;
+        max-width: calc(100% - 40px);
+      }
+      #logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      #qr-code {
+        flex-grow: 1;
+      }
+      #qr-code svg {
+        display: block;
+        margin: 20px auto 0;
+      }
+      #message {
+        flex-grow: 1;
+        text-align: center;
+        padding-bottom: 40px;
+        padding-right: 30px;
+        padding-left: 30px;
+      }
+      #message h4 {
+        font-size: 1.5em;
+      }
+      p,
+      h4,
+      h1,
+      h2,
+      h3 {
+        font-family: 'Press Start 2P';
+        color: #c9f5f5;
+        text-align: center;
+      }
+      h1 {
+        font-size: 72px
+      }
+      h3 {
+        font-size: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h1>Honk the horn!</h1>
+      <h1 style="padding: 1em">Turn on the lights!</h1>
+      <h3>Text "horn" or "lights" to</h3>
+      <h3>(+61) 0437 971171</h3>
+    </div>
+  </body>
+</html>
